@@ -1,0 +1,791 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    justify-content: space-between;
+}
+
+.marquee span {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50%));
+    }
+}
+
+/* navbar */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    display: block;
+}
+
+.logo span {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    color: #5b7f2b;
+    margin-left: -10px;
+}
+
+.navbar {
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8%;
+    background: #bfe0a8;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+    overflow: visible;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #5b7f2b;
+    transform: translateY(-2px);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #5b7f2b;
+    transition: .3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: #5b7f2b;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.menu-container {
+    display: none;
+    position: relative;
+}
+
+.menu-btn {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    background: #5b7f2b;
+    color: white;
+    border-radius: 8px;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    background: white;
+    list-style: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.mobile-menu li a {
+    display: block;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.mobile-menu li a:hover {
+    background: #f5f5f5;
+}
+
+
+
+.menu-container:hover .mobile-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-container:hover .mobile-menu,
+.mobile-menu:hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media(max-width:750px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-container {
+        display: block;
+    }
+
+}
+
+/* Hero banner */
+.hero {
+    min-height: 90vh;
+    background-size: cover;
+    background-position: center;
+    background:
+        linear-gradient(rgba(248, 245, 239, 0.63),
+            rgba(248, 245, 239, .82)),
+        url("./image/hero_bg.png");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 8%;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: #e7f1db;
+    color: #5b7f2b;
+    padding: 10px 18px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-size: 72px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.hero-content h1 span {
+    color: #5b7f2b;
+}
+
+.typing::after {
+    content: "";
+    animation: words 8s infinite;
+    color: #5b7f2b;
+}
+
+@keyframes words {
+
+    0%,
+    25% {
+        content: "Good for the Planet";
+    }
+
+    26%,
+    50% {
+        content: "Healthy Living";
+    }
+
+    51%,
+    75% {
+        content: "Organic Nutrition";
+    }
+
+    76%,
+    100% {
+        content: "Millet Power";
+    }
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto 30px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary {
+    text-decoration: none;
+    border: 2px solid #5b7f2b;
+    color: #5b7f2b;
+    padding: 15px 30px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background: #5b7f2b;
+    color: white;
+}
+
+.btn-secondary {
+    text-decoration: none;
+    border: 2px solid #5b7f2b;
+    color: #5b7f2b;
+    padding: 15px 30px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    background: #5b7f2b;
+    color: white;
+}
+
+@media(max-width:768px) {
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+.offer-bar {
+    background: #ff9800;
+    color: white;
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.offer-track {
+    display: inline-block;
+    animation: marque 20s linear infinite;
+}
+
+@keyframes marque {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50%));
+    }
+}
+
+.millet-banner {
+    padding: 50px 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(91, 127, 43, .85),
+            rgba(91, 127, 43, .85)),
+        url("./image/millet_bg.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.banner-content {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.millet-banner h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.millet-banner p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.banner-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 35px;
+    color: #5b7f2b;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.banner-btn:hover {
+    transform: translateY(-3px);
+    background: #5b7f2b;
+    color: white;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    color: #222;
+}
+
+.section-header p {
+    color: #666;
+    margin-top: 8px;
+}
+
+.price {
+    color: #5b7f2b;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 16px;
+    margin-left: 8px;
+}
+.card-icons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:20px 0;
+}
+
+.fav-btn,
+.cart-btn{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#f5f5f5;
+    cursor:pointer;
+    font-size:18px;
+    transition:.3s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.fav-btn:hover,
+.cart-btn:hover{
+    background:#5b7f2b;
+    color:white;
+}
+
+input[type="checkbox"]:checked + .fav-btn{
+    color:red;
+    background:#ffe5e5;
+}
+/* snacks */
+.offer-bar {
+    width: 100%;
+    overflow: hidden;
+    background: #ff9800;
+    padding: 12px 0;
+    white-space: nowrap;
+}
+
+.offer-track {
+    display: inline-block;
+    color: white;
+    font-weight: 600;
+    animation: snackOffer 30s linear infinite;
+}
+
+@keyframes snackOffer {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.healthy-snacks {
+    min-height: 70vh;
+    padding: 80px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(235, 234, 182, 0.85),
+            rgba(197, 228, 157, 0.584)),
+        url("./image/sweet_bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+.healthy-snacks .banner-content {
+    max-width: 700px;
+}
+
+.healthy-snacks h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.healthy-snacks p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.banner-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: white;
+    color: #5b7f2b;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.banner-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+.nutrition {
+    padding: 100px 8%;
+    background: #ffffff;
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.benefit-card {
+    background: #f8f5ef;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    transition: .4s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+}
+
+.icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+    color: #5b7f2b;
+    margin-bottom: 10px;
+}
+
+.benefit-card p {
+    color: #666;
+    line-height: 1.7;
+}
+
+@media(max-width:900px) {
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.recipes-banner {
+    min-height: 70vh;
+    padding: 80px 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(91, 127, 43, 0.732),
+            rgba(91, 127, 43, .85)),
+        url("./image/recipes_bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.recipes-banner .banner-content {
+    max-width: 700px;
+}
+
+.recipes-banner h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.recipes-banner p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+
+
+/* Testimonials */
+.testimonials {
+    padding: 100px 8%;
+    background: #ffffff;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: #f8f5ef;
+    padding: 30px;
+    border-radius: 20px;
+    transition: .4s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .05);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+}
+
+.stars {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.testimonial-card p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user h4 {
+    color: #5b7f2b;
+}
+
+@media(max-width:992px) {
+
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width:576px) {
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.footer {
+    background: #2f3e1f;
+    color: white;
+    padding-top: 70px;
+}
+
+.footer-container {
+    width: 85%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-col h2 {
+    margin-bottom: 20px;
+}
+
+.footer-col h3 {
+    margin-bottom: 20px;
+}
+
+.footer-col p {
+    line-height: 1.8;
+    color: #d6d6d6;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #d6d6d6;
+    transition: .3s;
+}
+
+.footer-col ul li a:hover {
+    color: #a4c66f;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+@media(max-width:992px) {
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width:576px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+}
+
+/* Mobile Image Size */
+@media(max-width:768px) {
+
+    .millet-card img,
+    .snack-card img,
+    .recipe-card img {
+        height: 180px;
+    }
+
+}
+
+/* Section Padding Mobile */
+@media(max-width:768px) {
+
+    .featured-millets,
+    .healthy-snacks,
+    .nutrition,
+    .recipes,
+    .testimonials {
+        padding: 60px 5%;
+    }
+
+}
+
+/* Section Header Mobile */
+@media(max-width:768px) {
+
+    .section-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+}
